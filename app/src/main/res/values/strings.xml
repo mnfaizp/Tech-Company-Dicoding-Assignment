@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tech Company</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_description">Company Description</string>
 </resources>
