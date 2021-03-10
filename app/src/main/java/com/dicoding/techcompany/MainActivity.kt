@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         rvCompanies.layoutManager = LinearLayoutManager(this)
         val cardViewCompanyAdapter = CardViewCompanyAdapter(list)
         rvCompanies.adapter = cardViewCompanyAdapter
+
+        cardViewCompanyAdapter.setOnItemClickCallback(object : CardViewCompanyAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Company) {
+                showDetail(data)
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -40,5 +46,13 @@ class MainActivity : AppCompatActivity() {
         val moveToAboutMe = Intent(this, AboutMeActivity::class.java)
         startActivity(moveToAboutMe)
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showDetail(company: Company) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_NAME, company.name)
+        intent.putExtra(DetailActivity.EXTRA_DETAIL, company.description)
+        intent.putExtra(DetailActivity.EXTRA_IMG, company.photo)
+        startActivity(intent)
     }
 }

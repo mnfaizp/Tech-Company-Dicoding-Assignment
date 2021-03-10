@@ -1,5 +1,6 @@
 package com.dicoding.techcompany
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,16 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class CardViewCompanyAdapter(private val listCompany: ArrayList<Company>) : RecyclerView.Adapter<CardViewCompanyAdapter.CardViewViewHolder>() {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Company)
+    }
+
     inner class CardViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_logo)
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
@@ -33,9 +44,7 @@ class CardViewCompanyAdapter(private val listCompany: ArrayList<Company>) : Recy
         holder.tvDesc.text = company.description
 
         holder.itemView.setOnClickListener {
-
-        }
-
+            onItemClickCallback.onItemClicked(listCompany[holder.adapterPosition]) }
     }
 
     override fun getItemCount(): Int {
