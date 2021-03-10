@@ -2,4 +2,6 @@
     <string name="app_name">Tech Company</string>
     <string name="company_name">Company Name</string>
     <string name="company_description">Company Description</string>
+    <string name="about_me">About Me</string>
+    <string name="my_name">M. NUR FAIZ PUTRO</string>
 </resources>

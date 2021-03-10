@@ -1,7 +1,10 @@
 package com.dicoding.techcompany
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -26,5 +29,16 @@ class MainActivity : AppCompatActivity() {
         rvCompanies.layoutManager = LinearLayoutManager(this)
         val cardViewCompanyAdapter = CardViewCompanyAdapter(list)
         rvCompanies.adapter = cardViewCompanyAdapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val moveToAboutMe = Intent(this, AboutMeActivity::class.java)
+        startActivity(moveToAboutMe)
+        return super.onOptionsItemSelected(item)
     }
 }

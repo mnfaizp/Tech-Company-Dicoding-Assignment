@@ -32,6 +32,10 @@ class CardViewCompanyAdapter(private val listCompany: ArrayList<Company>) : Recy
         holder.tvName.text = company.name
         holder.tvDesc.text = company.description
 
+        holder.itemView.setOnClickListener {
+
+        }
+
     }
 
     override fun getItemCount(): Int {
