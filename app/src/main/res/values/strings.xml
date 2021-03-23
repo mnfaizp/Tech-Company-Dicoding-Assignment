@@ -4,4 +4,7 @@
     <string name="company_description">Company Description</string>
     <string name="about_me">About Me</string>
     <string name="my_name">M. NUR FAIZ PUTRO</string>
+    <string name="announcement">Announcement</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search Keyword</string>
 </resources>
